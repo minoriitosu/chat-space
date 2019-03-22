@@ -25,7 +25,7 @@
       }
     }
   }
-
+}
   .groups {
     background-color: $side_blue_light;
     height: calc(100vh - 100px);
@@ -33,16 +33,15 @@
     overflow: scroll;
     .group {
       box-sizing: border-box;
-      padding: 20px 0 40px;
-      &__name {
-        color: $white;
-        font-size: $side_group_name;
+      padding: 20px 0 20px;
+      &_link {
+       color: $white;
+       font-size: $side_group_name;
+       text-decoration: none;
       }
       &__message {
-        color: $white;
-        font-size: $side_group_message;
+        font-size: 11px;
         margin-top: 5px;
       }
     }
   }
-}
