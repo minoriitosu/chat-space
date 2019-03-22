@@ -35,7 +35,7 @@ $(function() {
                 $('.messages').append(html)
                 $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight }, 'slow');
                 $('#message_content,#message_image').val('')
-                $('.form__submit').prop('disabled', false);
+                $('.form__submit').removeAttr("disabled");
             })
             .fail(function () {
                 alert('error')
