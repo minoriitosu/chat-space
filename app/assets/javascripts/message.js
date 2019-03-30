@@ -42,4 +42,30 @@ $(function() {
                 $('.form__submit').prop('disabled', false);
                       })
     });
- });
+
+  var interval = setInterval(function() {
+    if (location.href.match(/\/groups\/\d+\/messages/)){
+      $('.messages').animate({scrollTop:$('.messages')[0].scrollHeight});
+      var message_id = $('.message').last().data('id');
+      $.ajax({
+        url: location.href,
+        type: "GET",
+        data: {id: message_id},
+        dataType: "json"
+      })
+
+      .done(function(message) {
+        message.forEach(function(message) {
+          var html = buildHTML(message);
+          $('.messages').append(html);
+          $('.messages').animate({scrollTop:$('.messages')[0].scrollHeight});
+        })
+      })
+      .fail(function() {
+        alert('自動更新に失敗しました');
+      });
+    } else {
+        clearInterval(interval);
+      }
+  } , 3000 );
+});
